@@ -1,6 +1,6 @@
 # TransplantCollectionsViews
 
-Several sql files to create views. The purpose of these views is to isolate the fields of interest across various data sets and databases.
+Several sql files to create views. The purpose of these views is to isolate the fields of interest across various data sets and schemas.
 The data regards demographics and clinical information at the time of Registration, Transplant, Removal from the Organ Transplant Waiting List. Each time point is a seperate sql file. The creation of the aggregate views are in one sql file. Script was written in Microsoft SQL Server Management Studio. 
 
 The flow of the process is as follows:
