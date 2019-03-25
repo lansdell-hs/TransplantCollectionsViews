@@ -109,6 +109,12 @@ select
       ELSE 'Other/Not Reported' 
          
    End as Diagnosis, 
+--Group foreign donors into deceased
+  case when tx.don_ty in ('C','F') 
+	then 'C'
+	else 'L'
+	end as donorty,
+   
 --Set categorical bins on LAS scores   
    CASE WHEN TH.match_las_stop between 0 and 20 
       then '<20'  
