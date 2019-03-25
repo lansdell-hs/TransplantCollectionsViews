@@ -1,9 +1,13 @@
+--Points at correct database with write permissions
 USE SomeResearchDBname 
-
+--Drops view if it exists
 if object_id('TransplantCTR_WL', 'v') is not null drop view TransplantCTR_WL;
 go 
 
+/*Creates the view as the result of the below queries. Pulling multiple columns from the main Waitlist table and then select 
+columns from the individual organ datasets*/
 CREATE VIEW [TransplantCTR_WL] AS --general columns from time of registration on Waitlist, common to all organs
+--All fields from main waitlist table.	
 select
    wl.reg_id,
    wl.bloodty,
@@ -11,7 +15,6 @@ select
    wl.org_reg as organ,
    wl.reg_date,
    wl.reg_ctr as center,
-   ins.Pediatric_Only_Hospital,
    wl.gender,
    wl.start_cpra,
    wl.timewaiting,
@@ -25,28 +28,32 @@ select
    wl.transplantdate,
    wl.res_region_reg as region,
    wl.causedeath,
+ --Description columns from lookup table, audit id to link tables   
    a.audit_id,
    remcd.descrip as removal,
    cd.descrip as status,
    ir.descrip as Inact_reason,
    e.descrip as ethnicity,
-   --Kidney only
+  
+  --Kidney only
    wlKP.DIALYSIS_DATE,
    wlKP.start_epts,
    wlKP.alloc_days,
    wlKP.ISO_KP,
+   
    --Liver only
    wlLI.meld_peld_lab,
-   --Thoracic only
+  
+  --Thoracic only
    wlTH.match_las_reg,
    wlTH.calc_las_reg,
-   
+--Roll up Blood subgroups   
    CASE WHEN wl.bloodty in ('A','A1','A2','A2B')
        then 'A' 
 	   else wl.bloodty
           
    end as blood_type, 
-   
+  --Roll up specific diagnostic codes into committee approved higher level categories.     
    CASE WHEN wlKP.diag_reg IN (3XXX, 30XX, 3XXX, 3XXX, 3XXX, XXX4, XXX5, XXXXX6, XXXXX6, XXXX8, XXXXXX4, XXXXXX1, XXX2, X3, XXX5, XXXX2, XXXX, XXX9, XXXX4, XXXXX5, XX4, X7, XX8, XXXX)
       THEN 'Glomerular Disease'
           
@@ -104,7 +111,7 @@ select
       ELSE 'Other/Not Reported'
           
    END as Diagnosis, 
-   
+ --Set categorical bins on Ages   
    CASE WHEN wl.START_AGE between 0 and 1 
       then '<1'
       
@@ -133,7 +140,7 @@ select
 	  then '65+'
     
     End as Age_at_Listing,
-	
+--Set categorical bins on LAS scores 	
    CASE
       WHEN wlTH.match_las_reg between 0 and 20         
       then '<20' 
@@ -160,7 +167,7 @@ select
       then '70+'
           
    End as LAS_list,
-    
+ --Set categorical bins on CPRA at Listing     
    CASE WHEN wl.start_cpra = 0          
       then '0%'
            
@@ -177,7 +184,7 @@ select
       then '98-100%'
           
    End as CPRA_init,
- 	
+ --Set categorical bins on EPTS at listing 	
    --only applies to Kidney/Pancreas:
    CASE WHEN wl.org_reg in ('KI', 'KP') and wlKP.start_epts between 0 and 20 
       then '0-20%' 
@@ -189,7 +196,7 @@ select
       then 'Not Reported' 
          
    End as EPTS_init, 
-   
+ --Set categorical bins on Time at Dialysis at listing     
    CASE WHEN wl.org_reg in ('KI', 'KP') and wl.reg_date >= wlKp.DIALYSIS_DATE and DATEDIFF(d, wlKP.dialysis_date, wl.reg_date) between 0 and 364 
       then '<1 Year' 
          
@@ -206,7 +213,7 @@ select
       then 'Not on Dialysis' 
          
    End as Time_Dial, 	
-   
+   --Set categorical bins on MELD/PELD at Listing   
    --only applies to liver
    CASE WHEN wl.org_reg = 'LI' and wlLI.meld_peld_lab between 0 and 15
       then 'MELD/PELD <15' 
