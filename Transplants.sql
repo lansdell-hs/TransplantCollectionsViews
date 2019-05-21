@@ -314,6 +314,6 @@ from
              then .413*(kp.HGT_CM_TRR / kp.creatinine)       
              END as gfr ) z            
                          
-         where tx.transplantdate between '2016-01-01' and GETDATE()
+         where tx.transplantdate between DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - 3, 0) and  iif(datepart(dd,getdate())<15,DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-2, -1),DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1))
 
                   
