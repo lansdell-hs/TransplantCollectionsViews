@@ -272,4 +272,4 @@ from
       OrgAdminDatabase.dbo.txinstitutions ins 
       on ins.ctr_cd = substring(wl.reg_ctr, 1, 4) 
 where
-   wl.reg_date between '2016-01-01' and GETDATE() ;
+   wl.reg_date between DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - 3, 0) and iif(datepart(dd,getdate())<15,DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-2, -1),DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1)) ;
