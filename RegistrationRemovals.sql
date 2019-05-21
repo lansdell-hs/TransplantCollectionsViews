@@ -97,5 +97,5 @@ from
       on e.Cd = wl.ethcat [OrgAdminDatabase].[dbo].[rem_cd] remcd 
       on remcd.cd = wl.REM_CD 
 where
-   wl.regremovaldate between '2016-01-01' and GETDATE() 
+   wl.regremovaldate between DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - 3, 0)  and  DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1) 
    and wl.org_reg in ('HR', 'LU', 'KP', 'KI', 'LI', 'PA');
