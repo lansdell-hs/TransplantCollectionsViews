@@ -1,12 +1,12 @@
 --Points at correct database with write permissions
 USE SomeResearchDBname 
 --Drops view if it exists
-if object_id('TransplantCTR_WL', 'v') is not null drop view TransplantCTR_WL;
+if object_id('CTR_WL', 'v') is not null drop view CTR_WL;
 go 
 
 /*Creates the view as the result of the below queries. Pulling multiple columns from the main Waitlist table and then select 
 columns from the individual organ datasets*/
-CREATE VIEW [TransplantCTR_WL] AS --general columns from time of registration on Waitlist, common to all organs
+CREATE VIEW [CTR_WL] AS --general columns from time of registration on Waitlist, common to all organs
 --All fields from main waitlist table.	
 select
    wl.reg_id,
@@ -233,18 +233,18 @@ select
    End as LabMeldPeld 
    
 from
-   SomeResearchDataSet.DSV.Waitlist wl 
+   SomeResearchDB.DSV.Waitlist wl 
    left join
-      SomeResearchDataSet.DSV.WaitlistKP wlKP 
+      SomeResearchDB.DSV.WaitlistKP wlKP 
       on wlKP.reg_id = wl.reg_id 
    left join
-      SomeResearchDataSet.DSV.WaitlistLiver wlLI 
+      SomeResearchDB.DSV.WaitlistLiver wlLI 
       on wlLI.reg_id = wl.reg_id 
    left join
-      SomeResearchDataSet.DSV.WaitlistThoracic wlTH 
+      SomeResearchDB.DSV.WaitlistThoracic wlTH 
       on wlTH.reg_id = wl.reg_id 
    left join
-      SomeResearchDataSet.DSV.WaitlistIntestine wlIN 
+      SomeResearchDB.DSV.WaitlistIntestine wlIN 
       on wlIN.reg_id = wl.reg_id 
    left join
       OrgAdminDatabase.dbo.audit a 
