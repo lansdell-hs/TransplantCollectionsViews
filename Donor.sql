@@ -16,7 +16,7 @@ CREATE VIEW [TransplantCTR_DON] AS
 
 	
 
-	from SomeDataBase.SomeViewSchema.Donor d
+	from SomeResearchDataSet.DSV.Donors d
 	
 	
 	WHERE d.donation_dt between DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - 3, 0) and  iif(datepart(dd,getdate())<15,DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-2, -1),DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1));
