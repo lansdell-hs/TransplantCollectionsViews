@@ -2,13 +2,13 @@
 USE SomeResearchDBName
 --Drops view if it exists
 
-if object_id('TransplantCTR_WLREM','v') is not null
-drop view TransplantCTR_WLREM;*/
+if object_id('WLREM','v') is not null
+drop view WLREM;*/
 
 /*Creates the view as the result of the below queries. Pulling multiple columns from the main Waitlist table and then select columns from
 the individual organ datasets. Seperate from the registration dataset to focus purely on Removal on the Waitlist */
 
-CREATE VIEW [TransplantCTR_WLREM] AS 
+CREATE VIEW [WLREM] AS 
 select
 --All fields from main waitlist table.
    wl.reg_id,
@@ -90,7 +90,7 @@ select
 
 
 from
-   SomeResearchDataSet.DSV.Waitlist wl 
+   SomeResearchDB.DSV.Waitlist wl 
    left join
       OrgAdminDatabase.dbo.audit_kipa akp 
       on akp.audit_id = wl.audit_id OrgAdminDatabase.dbo.Ethnicity_Race e 
