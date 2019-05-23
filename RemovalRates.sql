@@ -1,3 +1,9 @@
+--Points at correct database with write permissions
+USE SomeResearchDBName
+--Drops view if it exists
+if object_id('RemRATES','v') is not null
+drop view RemRATES;
+go
 
 CREATE VIEW [RemRATES] AS
 
