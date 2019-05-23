@@ -1,11 +1,11 @@
 --Points at correct database with write permissions
 USE SomeResearchDBname 
 --Drops view if it exists
-if object_id('TransplantCTR_TX', 'v') is not null drop view TransplantCTR_TX;
+if object_id('CTR_TX', 'v') is not null drop view CTR_TX;
 go 
 /*Creates the view as the result of the below queries. Pulling multiple columns from the main Transplant table and then select columns from
 the individual organ datasets*/
-CREATE VIEW [TransplantCTR_TX] AS 
+CREATE VIEW [CTR_TX] AS 
 
 select
 --All fields from main transplant table.
@@ -266,15 +266,15 @@ select
    as glomerularfr_final 
 
 from
-   SomeResearchDataSet.DSV.TX tx 
+   SomeResearchDB.DSV.TX tx 
    left join
-      SomeResearchDataSet.DSV.kidpan kp 
+      SomeResearchDB.DSV.kidpan kp 
       on coalesce(kp.transplant_id_ki, kp.transplant_id_pa) = tx.transplant_id 
    left join
-      SomeResearchDataSet.DSV.liver li 
+      SomeResearchDB.DSV.liver li 
       on li.transplant_id = tx.transplant_id 
    left join
-      SomeResearchDataSet.DSV.thoracic th 
+      SomeResearchDB.DSV.thoracic th 
       on th.transplant_id = tx.transplant_id 
    left join
       OrgAdminDatabase.dbo.share_ty st 
