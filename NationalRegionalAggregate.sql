@@ -21,7 +21,7 @@ select
    gender as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
 
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -39,7 +39,7 @@ select
    ethnicity as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
    organ,
@@ -56,7 +56,7 @@ select
    bloodty as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -74,7 +74,7 @@ select
    Age_at_Listing as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -92,7 +92,7 @@ select
    Diagnosis as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
 
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -110,7 +110,7 @@ select
    removal as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
 
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -128,7 +128,7 @@ select
    status as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -146,7 +146,7 @@ select
    LAS_list as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ = 'LU' 
 group by
@@ -165,7 +165,7 @@ select
    LabMeldPeld as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ = 'LI' 
 group by
@@ -184,7 +184,7 @@ select
    CPRA_init as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -204,7 +204,7 @@ select
    EPTS_init as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -224,7 +224,7 @@ select
    Time_Dial as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -246,7 +246,7 @@ select
    gender as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region) ,
@@ -265,7 +265,7 @@ select
    ethnicity as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL
+   CTR_WL
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, reg_date), datepart(year, reg_date)),
@@ -284,7 +284,7 @@ select
    bloodty as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region),
@@ -304,7 +304,7 @@ select
    Age_at_Listing as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region) ,
@@ -324,7 +324,7 @@ select
    Diagnosis as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region) ,
@@ -344,7 +344,7 @@ select
    removal as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region) ,
@@ -364,7 +364,7 @@ select
    status as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 group by
    
    convert(varchar(3),region) ,
@@ -384,7 +384,7 @@ select
    LAS_list as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ = 'LU' 
 group by
@@ -406,7 +406,7 @@ select
    LabMeldPeld as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ = 'LI' 
 group by
@@ -428,7 +428,7 @@ select
    CPRA_init as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -451,7 +451,7 @@ select
    EPTS_init as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -474,7 +474,7 @@ select
    Time_Dial as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WL 
+   CTR_WL 
 where
    organ in 
    ('KI','KP')
@@ -497,7 +497,7 @@ select
    Removal as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WLREM 
+   CTR_WLREM 
 group by
    concat(DATENAME(month, rem_date), datepart(year, rem_date)),
    organ,
@@ -515,7 +515,7 @@ select
    Removal as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_WLREM 
+   CTR_WLREM 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, rem_date), datepart(year, rem_date)),
@@ -536,7 +536,7 @@ select
    Age_at_TX as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
    organ,
@@ -555,7 +555,7 @@ select
    status as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
 
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -576,7 +576,7 @@ select
    gender as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -597,7 +597,7 @@ select
    blood_type as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
   
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -618,7 +618,7 @@ select
    ethnicity as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -639,7 +639,7 @@ select
    Diagnosis as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
   
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -660,7 +660,7 @@ select
    LAS_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ='LU'
 group by
   
@@ -682,7 +682,7 @@ select
    CPRA_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
   
@@ -704,7 +704,7 @@ select
    LabMeldPeld as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ='LI'
 group by
    
@@ -726,7 +726,7 @@ select
    KDPI_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
  
@@ -748,7 +748,7 @@ select
    gfr_final as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    
@@ -770,7 +770,7 @@ select
    share_ty as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    
@@ -793,7 +793,7 @@ select
    Age_at_TX as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -813,7 +813,7 @@ select
    status as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -834,7 +834,7 @@ select
    gender as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -855,7 +855,7 @@ select
    blood_type as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -876,7 +876,7 @@ select
    ethnicity as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -897,7 +897,7 @@ select
    Diagnosis as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 group by
    convert(varchar(3),region),
    concat(DATENAME(month, transplantdate), datepart(year, transplantdate)),
@@ -918,7 +918,7 @@ select
    LAS_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ='LU'
 group by
    convert(varchar(3),region),
@@ -940,7 +940,7 @@ select
    CPRA_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    convert(varchar(3),region),
@@ -961,7 +961,7 @@ select
    LabMeldPeld as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ='LI'
 group by
    convert(varchar(3),region),
@@ -982,7 +982,7 @@ select
    KDPI_tx as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    convert(varchar(3),region),
@@ -1003,7 +1003,7 @@ select
    gfr_final as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    convert(varchar(3),region),
@@ -1024,7 +1024,7 @@ select
    share_ty as strv_cat,
    count(*) as n_obs 
 from
-   TransplantCTR_TX 
+   CTR_TX 
 where organ in ('KI','KP')
 group by
    convert(varchar(3),region),
