@@ -1,3 +1,12 @@
+--Points at correct database with write permissions
+USE SomeResearchDBName
+--Drops view if it exists
+
+if object_id('CTR_DON','v') is not null
+drop view CTR_DON;
+go
+
+
 CREATE VIEW [CTR_DON] AS
 	
 	select d.donor_id,d.OPOcenter as center,d.donation_dt,D.orgs_recov,d.orgs_txed,d.orgs_disc,d.NUM_HR_RECOV,d.NUM_HR_TX,d.NUM_HR_DISC,
