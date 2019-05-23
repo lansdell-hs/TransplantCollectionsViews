@@ -1,4 +1,11 @@
-create view TransplantCTRremComp as
+--Points at correct database with write permissions
+USE SomeResearchDBName
+--Drops view if it exists
+if object_id('CTRremComp','v') is not null
+drop view CTRremComp;
+go
+
+create view CTRremComp as
 
 select 
 wl.reg_id,
