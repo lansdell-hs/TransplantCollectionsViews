@@ -1,4 +1,4 @@
-CREATE VIEW [TransplantCTR_DON] AS
+CREATE VIEW [CTR_DON] AS
 	
 	select d.donor_id,d.OPOcenter as center,d.donation_dt,D.orgs_recov,d.orgs_txed,d.orgs_disc,d.NUM_HR_RECOV,d.NUM_HR_TX,d.NUM_HR_DISC,
 	d.ki_recov,d.ki_txed,d.ki_disc,
@@ -16,7 +16,7 @@ CREATE VIEW [TransplantCTR_DON] AS
 
 	
 
-	from SomeResearchDataSet.DSV.Donors d
+	from SomeResearchDB.DSV.Donors d
 	
 	
 	WHERE d.donation_dt between DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) - 3, 0) and  iif(datepart(dd,getdate())<15,DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-2, -1),DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1));
