@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transplant Collections</title>
+</head>
+<body>
+  
+  
+  <form method="post" action=process-form-data.php>
+  <header>
+	<h1>Transplant Collection Submission</h1>
+  </header>	
+  <div>
+  <header>
+	<h4>Entered by:</h4>
+    <label for="name">Name of contact:</label>
+    <input type="text" name="name" placeholder='Your Name'>
+  </div>
+  <div>
+    <label for="mail">E-mail:</label>
+    <input type="email" name="email" placeholder='YourName@unos.org'>
+  </div>
+  <div>
+  <header>
+	<h4>Center Information:</h4>
+  <header>
+	<label for="myInput">Purchasing Center:</label>
+   <input type="text" name="purchasingctr" list="Centers"> <br>
+  <br> 
+  </div>
+  
+  <div>
+ <input type="radio" name="KI" id="KI" value="KI"> Kidney<br>
+ <input type="radio" name="LI" id="LI" value="LI"> Liver<br>
+ <input type="radio" name="HR" id="HR" value="HR"> Heart<br>
+ <input type="radio" name="LU" id="LU" value="LU"> Lung<br>
+ <input type="radio" name="PA" id="PA" value="PA"> Pancreas<br>
+ <input type="radio" name="KP" id="KP" value="KP"> Kidney-Pancreas<br>
+ </div>
+  <br>
+
+  
+  <div>
+  <header>
+	<h4>Benchmark Centers (Up to 7):</h4>
+  </header>
+  <br>
+  </div>
+ 
+  <div>
+  <input type="text" name="Benchmark1" id="Benchmark1" list="Centers">
+  <input type="text" name="Benchmark2" id="Benchmark2" list="Centers">
+  <input type="text" name="Benchmark3" id="Benchmark3" list="Centers">
+  <input type="text" name="Benchmark4" id="Benchmark4" list="Centers">
+  <input type="text" name="Benchmark5" id="Benchmark5" list="Centers">
+  <input type="text" name="Benchmark6" id="Benchmark6" list="Centers">
+  <input type="text" name="Benchmark7" id="Benchmark7" list="Centers">
+  </div>
+  
+  
+  
+  
+  <br>
+  <input type="submit" name="s1" value="submit" id="s1">
+  
+  
+  
+</form>
+  
+
+
+
+<datalist id="Centers">
+	<select>
+	<option value='AAAA'>AAAA
+	<option value='BBBB'>BBBB
+	<option value='CCCC'>CCCC
+	<option value='DDDD'>DDDD
+	<option value='EEEE'>EEEE
+	
+	</select>
+</datalist>
+<br>
+<br>
+<br>
+
+</body>
+</html>
+
